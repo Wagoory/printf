@@ -20,9 +20,9 @@ int print_hexadec(va_list prf, flags_t *f)
 
 /**
  * print_hexadec_upper - prints in hexadecimal format
- * @l: list of arg
+ * @prf: list of arg
  * @f: pointer to flag
- * Return: length of format 
+ * Return: length of format
  */
 int print_hexadec_upper(va_list prf, flags_t *f)
 {

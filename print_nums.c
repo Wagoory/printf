@@ -23,7 +23,7 @@ int print_integer(va_list prf, flags_t *f)
 
 /**
  * print_unsigned - prints unsigned int
- * @l: list of arg
+ * @prf: list of arg
  * @f: pointer to flags
  * Return: length of format
  */
