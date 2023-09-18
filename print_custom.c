@@ -1,20 +1,16 @@
 #include "main.h"
 
 /**
- * print_bigS - Non printable characters
- * (0 < ASCII value < 32 or >= 127) are
- * printed this way: \x, followed by the ASCII code
- * value in hexadecimal (upper case - always 2 characters)
- * @l: va_list arguments from _printf
- * @f: pointer to the struct flags that determines
- * if a flag is passed to _printf
- * Return: number of char printed
+ * print_non - Non printable character
+ * @prf: list of arg
+ * @f: pointer
+ * Return: length of format
  */
-int print_bigS(va_list l, flags_t *f)
+int print_non(va_list prf, flags_t *f)
 {
-	int i, count = 0;
-	char *res;
-	char *s = va_arg(l, char *);
+	int i, cnt = 0;
+	char *result;
+	char *s = va_arg(prf, char *);
 
 	(void)f;
 	if (!s)
@@ -25,29 +21,28 @@ int print_bigS(va_list l, flags_t *f)
 		if (s[i] > 0 && (s[i] < 32 || s[i] >= 127))
 		{
 			_puts("\\x");
-			count += 2;
-			res = convert(s[i], 16, 0);
-			if (!res[1])
-				count += _putchar('0');
-			count += _puts(res);
+			cnt += 2;
+			result = convert(s[i], 16, 0);
+			if (!result[1])
+				cnt += _putchar('0');
+			cnt += _puts(result);
 		}
 		else
-			count += _putchar(s[i]);
+			cnt += _putchar(s[i]);
 	}
-	return (count);
+	return (cnt);
 }
 
 /**
  * print_rev - prints a string in reverse
- * @l: argument from _printf
- * @f: pointer to the struct flags that determines
- * if a flag is passed to _printf
- * Return: length of the printed string
+ * @prf: list of arg
+ * @f: pointer
+ * Return: length format
  */
-int print_rev(va_list l, flags_t *f)
+int print_rev(va_list prf, flags_t *f)
 {
 	int i = 0, j;
-	char *s = va_arg(l, char *);
+	char *s = va_arg(prf, char *);
 
 	(void)f;
 	if (!s)
@@ -64,17 +59,16 @@ int print_rev(va_list l, flags_t *f)
 
 /**
  * print_rot13 - prints a string using rot13
- * @l: list of arguments from _printf
- * @f: pointer to the struct flags that determines
- * if a flag is passed to _printf
- * Return: length of the printed string
+ * @prf: list of arg
+ * @f: pointer
+ * Return: length of format
  */
-int print_rot13(va_list l, flags_t *f)
+int print_rot13(va_list prf, flags_t *f)
 {
 	int i, j;
 	char rot13[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	char ROT13[] = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM";
-	char *s = va_arg(l, char *);
+	char *s = va_arg(prf, char *);
 
 	(void)f;
 	for (j = 0; s[j]; j++)
@@ -95,14 +89,14 @@ int print_rot13(va_list l, flags_t *f)
 }
 
 /**
- * print_percent - prints a percent
- * @l: va_list arguments from _printf
- * @f: pointer to the struct flags in which we turn the flags on
- * Return: number of char printed
+ * print_per - prints a percent
+ * @prf: list of arg
+ * @f: pointer
+ * Return: length of format
  */
-int print_percent(va_list l, flags_t *f)
+int print_per(va_list prf, flags_t *f)
 {
-	(void)l;
+	(void)prf;
 	(void)f;
 	return (_putchar('%'));
 }
