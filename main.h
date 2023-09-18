@@ -31,15 +31,15 @@ typedef struct printHandler
 } ph;
 
 /* print_nums */
-int print_int(va_list l, flags_t *f);
-void print_number(int n);
-int print_unsigned(va_list l, flags_t *f);
-int count_digit(int i);
+int print_integer(va_list prf, flags_t *f);
+void print_number(int num);
+int print_unsigned(va_list prf, flags_t *f);
+int cnt_digit(int i);
 
 /* print_bases */
-int print_hex(va_list prf, flags_t *f);
-int print_hex_big(va_list prf, flags_t *f);
-int print_binary(va_list prf, flags_t *f);
+int print_hexadec(va_list prf, flags_t *f);
+int print_hexadec_upper(va_list prf, flags_t *f);
+int print_bin(va_list prf, flags_t *f);
 int print_octal(va_list prf, flags_t *f);
 
 /* converter */
@@ -55,8 +55,8 @@ int (*get_print(char s))(va_list, flags_t *);
 int get_flag(char s, flags_t *f);
 
 /* print_alpha */
-int print_string(va_list prf, flags_t *f);
-int print_char(va_list prf, flags_t *f);
+int print_str(va_list prf, flags_t *f);
+int print_ch(va_list prf, flags_t *f);
 
 /* write_funcs */
 int _putchar(char c);
