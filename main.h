@@ -68,7 +68,7 @@ int print_rev(va_list prf, flags_t *f);
 int print_non(va_list prf, flags_t *f);
 
 /* print_address */
-int print_address(va_list prf, flags_t *f);
+int print_addr(va_list prf, flags_t *f);
 
 /* print_percent */
 int print_per(va_list prf, flags_t *f);
