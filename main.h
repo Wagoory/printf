@@ -5,11 +5,10 @@
 #include <stdarg.h>
 
 /**
- * struct flags - struct containing flags to "turn on"
- * when a flag specifier is passed to _printf()
- * @plus: flag for the '+' character
- * @space: flag for the ' ' character
- * @hash: flag for the '#' character
+ * struct flags - struct flag
+ * @plus: '+'
+ * @space: ' '
+ * @hash: '#'
  */
 typedef struct flags
 {
@@ -19,12 +18,11 @@ typedef struct flags
 } flags_t;
 
 /**
- * struct printHandler - struct to choose the right function depending
- * on the format specifier passed to _printf()
+ * struct Handler - struct to handle
  * @c: format specifier
  * @f: pointer to the correct printing function
  */
-typedef struct printHandler
+typedef struct Handler
 {
 	char c;
 	int (*f)(va_list ap, flags_t *f);
@@ -47,11 +45,7 @@ char *convert(unsigned long int n, int base, int lower);
 
 /* _printf */
 int _printf(const char *format, ...);
-
-/* get_print */
 int (*get_print(char s))(va_list, flags_t *);
-
-/* get_flag */
 int get_flag(char s, flags_t *f);
 
 /* print_alpha */
@@ -67,10 +61,8 @@ int print_rot13(va_list prf, flags_t *f);
 int print_rev(va_list prf, flags_t *f);
 int print_non(va_list prf, flags_t *f);
 
-/* print_address */
+/* print */
 int print_addr(va_list prf, flags_t *f);
-
-/* print_percent */
 int print_per(va_list prf, flags_t *f);
 
 #endif
