@@ -1,11 +1,19 @@
 #include "main.h"
 
 /**
+<<<<<<< HEAD
  * get_print - select the printer
  * @s: char 
  * Return: pointer
  */
 int (*get_print(char s))(va_list, flags_t *)
+=======
+ * get_print - prints right func
+ * @s: character pointer
+ * Return: length of format
+*/
+ int (*get_print(char s))(va_list, flags_t *)
+>>>>>>> refs/remotes/origin/master
 {
 	ph func_arr[] = {
 		{'i', print_int},
