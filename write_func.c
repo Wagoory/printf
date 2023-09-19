@@ -4,7 +4,7 @@
 /**
  * _putchar - prints char
  * @c: char to be printed
- * Return: On success 1.
+ * Return: length of format
  */
 int _putchar(char c)
 {
@@ -25,9 +25,9 @@ int _putchar(char c)
 }
 
 /**
- * _puts - prints a string to stdout
- * @str: pointer to the string to print
- * Return: number of chars written
+ * _puts - prints string
+ * @str: string to be printed
+ * Return: length of format
  */
 int _puts(char *str)
 {
