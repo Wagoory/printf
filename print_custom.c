@@ -41,15 +41,15 @@ int print_non(va_list prf, flags_t *f)
  */
 int print_rev(va_list prf, flags_t *f)
 {
-	int i, j;
+	int i = 0, j;
 	char *s = va_arg(prf, char *);
 
 	(void)f;
 	if (!s)
 		s = "(null)";
 
-	for (i; s[i]; i++)
-		;
+	while (s[i])
+		i++;
 
 	for (j = i - 1; j >= 0; j--)
 		_putchar(s[j]);
