@@ -15,6 +15,8 @@ int print_integer(va_list prf, flags_t *f)
 		result += _putchar(' ');
 	if (f->plus == 1 && num >= 0)
 		result += _putchar('+');
+	if (f->minus == 1 && num <= 0)
+		result += _putchar('-');
 	if (num <= 0)
 		result++;
 	print_number(num);
