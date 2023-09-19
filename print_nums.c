@@ -15,8 +15,9 @@ int print_integer(va_list prf, flags_t *f)
 		result += _putchar(' ');
 	if (f->plus == 1 && num >= 0)
 		result += _putchar('+');
-	if (f->minus == 1 && num <= 0)
-		result += _putchar('-');
+	if (f->minus == 1)
+		return (write(1, &buffer[0], 1) +
+					write(1, &buffer[BUFF_SIZE - i - 1], width - 1));
 	if (num <= 0)
 		result++;
 	print_number(num);
@@ -34,7 +35,8 @@ int print_unsigned(va_list prf, flags_t *f)
 	unsigned int un = va_arg(prf, unsigned int);
 	char *s = convert(un, 10, 0);
 
-	(void)f;
+	if (f->minus == 1)
+		return (write(1, &buffer[ind], length) + write(1, &buffer[0], i));
 	return (_puts(s));
 }
 
